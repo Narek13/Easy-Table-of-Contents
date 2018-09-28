@@ -529,7 +529,7 @@ if ( ! class_exists( 'ezTOC' ) ) {
 		public static function the_content( $content ) {
 
 			// bail if feed, search or archive
-			if ( is_feed() || is_search() || is_archive() ) {
+			if ( is_feed() || is_search() || is_archive() || is_singular( 'blocks' ) || is_front_page() ) {
 				return $content;
 			}
 
