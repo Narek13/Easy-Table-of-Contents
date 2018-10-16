@@ -529,14 +529,14 @@ if ( ! class_exists( 'ezTOC' ) ) {
 		public static function the_content( $content ) {
 
 			// bail if feed, search or archive
-			if ( is_feed() || is_search() || is_archive() ) {
+			if ( is_feed() || is_search() || is_archive() || is_singular( 'blocks' ) || is_front_page() ) {
 				return $content;
 			}
 
 			// bail if post not eligible and widget is not active
 			$is_eligible = self::is_eligible();
 
-			if ( ! $is_eligible || ! is_active_widget( false, false, 'ezw_tco' ) ) {
+			if ( ! $is_eligible && ! is_active_widget( false, false, 'ezw_tco' ) ) {
 
 				return $content;
 			}
